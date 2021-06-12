@@ -4,17 +4,28 @@
 }
 
 @font-face {
-  font-family: "Kenoky";
-  src: url("assets/KenokyLight.ttf") format("truetype");
+  font-family: "NeutralFace";
+  src: url("assets/NeutralFace.otf") format("opentype");
 }
 
 @font-face {
-  font-family: "Kioea";
-  src: url("assets/Kioea.ttf") format("truetype");
+  font-family: "Clash";
+  src: url("assets/Clash.ttf") format("truetype");
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+%page-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

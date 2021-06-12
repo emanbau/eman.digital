@@ -1,0 +1,59 @@
+@import "../App";
+
+%nav-link {
+  font-family: "Clash", serif;
+  color: #f5efe1;
+  font-size: 18px;
+  position: absolute;
+  letter-spacing: 0px;
+  top: 40px;
+}
+
+.home-container-dark {
+  @extend %page-container;
+  background-color: #282828;
+
+  .eman-picture {
+    background-image: url("../assets/eman.png");
+    background-repeat: no-repeat;
+    height: 60vh;
+    width: 20vw;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.75;
+    animation-name: eman;
+    animation-duration: 2s;
+  }
+
+  @keyframes eman {
+    from {
+      width: 40vw;
+    }
+    to {
+      width: 20vw;
+    }
+  }
+
+  .work-nav {
+    @extend %nav-link;
+    left: 100px;
+  }
+
+  .about-nav {
+    @extend %nav-link;
+    right: 100px;
+  }
+
+  .header {
+    font-family: "NeutralFace", serif;
+    color: #f5efe1;
+    font-size: 75px;
+    position: absolute;
+    letter-spacing: 15px;
+  }
+}
+
+.home-container-light {
+  @extend %page-container;
+  background-color: #f5efe1;
+}
