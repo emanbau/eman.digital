@@ -8,11 +8,11 @@ const Home: React.FC = () => {
             <h1 className="about-nav">about</h1>
             <div className="eman-picture"/>
             <h1 className="header">
-                developer
+                DEVELOPER
                 <br/>
-                designer
+                DESIGNER
                 <br/>
-                student.
+                STUDENT.
             </h1>
         </div>
     )
