@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
-const Work: React.FC = () => {
+interface Props {
+    
+}
+
+function Work({}: Props): ReactElement {
     return (
         <div>
-
+            
         </div>
     )
 }
 
-export default Work;
+export default Work
+

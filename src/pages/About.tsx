@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
-const About: React.FC = () => {
+interface Props {
+    
+}
+
+function About({}: Props): ReactElement {
     return (
         <div>
-
+            
         </div>
     )
 }
 
-export default About;
+export default About
