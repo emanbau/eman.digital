@@ -13,6 +13,16 @@
   src: url("assets/Clash.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Clash-Extralight";
+  src: url("assets/ClashDisplay-Extralight.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Clash-Semibold";
+  src: url("assets/ClashDisplay-Semibold.otf") format("opentype");
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
