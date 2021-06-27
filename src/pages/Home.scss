@@ -1,5 +1,19 @@
 @import "../App";
 
+canvas {
+  display: block;
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+}
+
+.three-image {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+}
+
 %nav-link {
   font-family: "Clash-Extralight", serif;
   color: #f5efe1;

@@ -4,40 +4,44 @@ import { TextureLoader } from 'three';
 import '../pages/Home.scss';
 import EmanImage from '../assets/eman.png';
 
-interface Props {
-    
-}
 
-const ThreeImage = React.memo(function ThreeImage({}: Props): ReactElement {
+
+const ThreeImage = React.memo(function ThreeImage(): ReactElement {
     const threeRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         let mount = threeRef.current;
-        let camera: any, scene: any, renderer: any, cube: any;
+        let camera: any, scene: any, renderer: any, mesh: any;
+        let uMouse = new THREE.Vector2(0, 0);
 
         function init(): void {
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, -.1, 1000 );
+            camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
             renderer = new THREE.WebGLRenderer();
             renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.setClearColor(0x00ff00);
 
             if (mount) {
                 mount.appendChild( renderer.domElement );
             }
 
-            let geometry = new THREE.BoxGeometry();
-            let texture = new TextureLoader().load( EmanImage )
-            cube = new THREE.Mesh( geometry );
-            scene.add( cube );
+            let geometry = new THREE.PlaneBufferGeometry();
+            let texture = new TextureLoader().load( EmanImage );
+            let material = new THREE.MeshBasicMaterial( { map: texture } );
+            mesh = new THREE.Mesh( geometry, material);
+            scene.add( mesh );
 
             camera.position.z = 5;
+
+            window.addEventListener('mousemove', (e) => {
+                uMouse.x = ( e.clientX / window.innerWidth );
+                uMouse.y = ( e.clientY / window.innerWidth );
+            });
         }
 
         function animate(): void {
             requestAnimationFrame( animate );
             
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.1;
 
             renderer.render( scene, camera );
 
@@ -45,10 +49,6 @@ const ThreeImage = React.memo(function ThreeImage({}: Props): ReactElement {
 
         init();
         animate();
-
-        return() => {
-
-        }
     });
 
     return (
