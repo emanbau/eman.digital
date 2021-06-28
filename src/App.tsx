@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Switch>
           <Route path='/'>
-            <ThreeImage />
+            <Home />
           </Route>
           <Route path='/about'>
             <About />
