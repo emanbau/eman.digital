@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { TextureLoader } from 'three';
+import { GeometryUtils, TextureLoader } from 'three';
 import '../pages/Home.scss';
 import EmanImage from '../assets/eman.png';
 
@@ -10,7 +10,7 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
     const threeRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         let mount = threeRef.current;
-        let camera: any, scene: any, renderer: any, mesh: any, frameId: any;
+        let camera: any, scene: any, renderer: any, geometry: any, texture: any, material: any, mesh: any, frameId: any;
         let uMouse = new THREE.Vector2(0, 0);
 
         function init(): void {
@@ -25,9 +25,9 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
                 mount.appendChild( renderer.domElement );
             }
 
-            let geometry = new THREE.PlaneBufferGeometry(3, 5);
-            let texture = new TextureLoader().load( EmanImage );
-            let material = new THREE.MeshBasicMaterial( { map: texture } );
+            geometry = new THREE.PlaneBufferGeometry(3, 5);
+            texture = new TextureLoader().load( EmanImage );
+            material = new THREE.MeshBasicMaterial( { map: texture } );
             mesh = new THREE.Mesh( geometry, material);
             scene.add( mesh );
 
@@ -65,6 +65,10 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
             stop();
             mount?.removeChild( renderer.domElement );
             window.removeEventListener( 'mousemove', onMouseMove );
+            scene.remove(mesh);
+            geometry.dispose();
+            material.dispose();
+            texture.dispose();
         }
     });
 
