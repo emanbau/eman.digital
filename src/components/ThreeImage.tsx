@@ -10,22 +10,22 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
     const threeRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         let mount = threeRef.current;
-        let camera: any, scene: any, renderer: any, mesh: any;
+        let camera: any, scene: any, renderer: any, mesh: any, frameId: any;
         let uMouse = new THREE.Vector2(0, 0);
 
         function init(): void {
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
-            renderer = new THREE.WebGLRenderer();
+            renderer = new THREE.WebGL1Renderer({alpha: true, antialias: true});
             renderer.setSize( window.innerWidth, window.innerHeight );
-            renderer.setClearColor(0x00ff00);
+            renderer.setClearColor(0x282828);
 
             if (mount) {
                 mount.appendChild( renderer.domElement );
             }
 
-            let geometry = new THREE.PlaneBufferGeometry();
+            let geometry = new THREE.PlaneBufferGeometry(3, 5);
             let texture = new TextureLoader().load( EmanImage );
             let material = new THREE.MeshBasicMaterial( { map: texture } );
             mesh = new THREE.Mesh( geometry, material);
@@ -40,15 +40,30 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
         }
 
         function animate(): void {
-            requestAnimationFrame( animate );
-            
-
+            frameId = window.requestAnimationFrame(animate);
             renderer.render( scene, camera );
-
         }
 
+        function start(): void {
+            if (!frameId) {
+                frameId = requestAnimationFrame(animate)
+            }
+        }
+
+        function stop(): void {
+            cancelAnimationFrame(frameId);
+            frameId = null;
+        }
+
+        start();
         init();
         animate();
+
+        return() => {
+            stop();
+            mount?.removeChild( renderer.domElement );
+            
+        }
     });
 
     return (
@@ -57,3 +72,4 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
 });
 
 export default ThreeImage
+
