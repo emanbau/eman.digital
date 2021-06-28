@@ -14,10 +14,9 @@ canvas {
 %nav-link {
   font-family: "Clash-Extralight", serif;
   color: #f5efe1;
-  font-size: 18px;
+  font-size: 14px;
   position: absolute;
-  letter-spacing: 0px;
-  top: 40px;
+  letter-spacing: 1.5px;
 }
 
 .home-container-dark {
@@ -48,11 +47,25 @@ canvas {
   .work-nav {
     @extend %nav-link;
     left: 100px;
+    top: 60px;
   }
 
   .about-nav {
     @extend %nav-link;
     right: 100px;
+    top: 60px;
+  }
+
+  .contact-nav {
+    @extend %nav-link;
+    left: 100px;
+    bottom: 60px;
+  }
+
+  .blog-nav {
+    @extend %nav-link;
+    right: 100px;
+    bottom: 60px;
   }
 
   .header {
