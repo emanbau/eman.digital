@@ -33,10 +33,12 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
 
             camera.position.z = 5;
 
-            window.addEventListener('mousemove', (e) => {
-                uMouse.x = ( e.clientX / window.innerWidth );
+            window.addEventListener('mousemove', onMouseMove );
+        }
+
+        function onMouseMove(e: MouseEvent): void {
+            uMouse.x = ( e.clientX / window.innerWidth );
                 uMouse.y = ( e.clientY / window.innerWidth );
-            });
         }
 
         function animate(): void {
@@ -62,7 +64,7 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
         return() => {
             stop();
             mount?.removeChild( renderer.domElement );
-            
+            window.removeEventListener( 'mousemove', onMouseMove );
         }
     });
 
