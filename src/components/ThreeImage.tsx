@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { GeometryUtils, TextureLoader } from 'three';
+import { TextureLoader } from 'three';
 import '../pages/Home.scss';
 import EmanImage from '../assets/eman.png';
 
@@ -15,10 +15,11 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
 
         function init(): void {
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+            camera = new THREE.PerspectiveCamera( 2 * (180/Math.PI) * Math.atan(5 / (2 * 0.5)), 300/500 , 0.01, 10 );
+            camera.position.z = 0.5;
 
             renderer = new THREE.WebGL1Renderer({alpha: true, antialias: true});
-            renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.setSize( 300, 500 );
             renderer.setClearColor(0x282828);
 
             if (mount) {
@@ -31,14 +32,12 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
             mesh = new THREE.Mesh( geometry, material);
             scene.add( mesh );
 
-            camera.position.z = 5;
-
             window.addEventListener('mousemove', onMouseMove );
         }
 
         function onMouseMove(e: MouseEvent): void {
             uMouse.x = ( e.clientX / window.innerWidth );
-                uMouse.y = ( e.clientY / window.innerWidth );
+            uMouse.y = ( e.clientY / window.innerWidth );
         }
 
         function animate(): void {

@@ -2,16 +2,13 @@
 
 canvas {
   display: block;
-  position: fixed;
   z-index: -1;
-  width: 20vw;
-  height: 60vh;
+  top: 0;
+  left: 0;
 }
 
 .three-image {
-  width: 20vw;
-  height: 60vh;
-  position: absolute;
+  @extend %page-container;
 }
 
 %nav-link {
