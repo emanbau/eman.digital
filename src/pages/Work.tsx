@@ -7,7 +7,7 @@ interface Props {
 function Work({}: Props): ReactElement {
     return (
         <div>
-            
+            Hello!
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.scss';
-import ThreeImage from './components/ThreeImage';
 import Home from './pages/Home';
 import About from './pages/About';
 import Work from './pages/Work';
@@ -11,15 +10,9 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path='/'>
-            <Home />
-          </Route>
-          <Route path='/about'>
-            <About />
-          </Route>
-          <Route path='/work'>
-            <Work />
-          </Route>
+          <Route exact path='/' component={Home} />
+          <Route path='/about' component={About} />
+          <Route path='/work' component={Work} />
         </Switch>
       </Router>
     </div>
