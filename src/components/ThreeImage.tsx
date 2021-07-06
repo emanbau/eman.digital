@@ -6,6 +6,7 @@ import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import { TextureLoader, Vector2 } from 'three';
 import '../pages/Home.scss';
 import EmanImage from '../assets/eman.png';
+import ThreeGrainFilter from '../components/ThreeGrainFilter';
 
 const ThreeImage = React.memo(function ThreeImage(): ReactElement {
     const threeRef = useRef<HTMLDivElement>(null);
@@ -25,7 +26,7 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
 
             renderer = new THREE.WebGL1Renderer({alpha: true, antialias: true});
             renderer.setSize( 420, 700 );
-            renderer.setClearColor(0x1d1d1d);
+            renderer.setClearColor(0x1d1d1d, 1);
             renderer.outputEncoding = THREE.sRGBEncoding;
 
             mount?.appendChild( renderer.domElement );
@@ -120,7 +121,10 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
     });
 
     return (
-        <div className="three-image" ref={threeRef} />
+        <React.Fragment>
+            <div className="three-image" ref={threeRef} />
+            <ThreeGrainFilter />
+        </React.Fragment>
     )
 });
 

@@ -9,6 +9,7 @@ canvas {
 
 .three-image {
   @extend %page-container;
+  z-index: 1;
 }
 
 %nav-link {
@@ -75,7 +76,8 @@ canvas {
     color: #f5efe1;
     font-size: 75px;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
+    opacity: 0.8;
     letter-spacing: 15px;
     line-height: 100px;
     pointer-events: none;

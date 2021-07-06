@@ -1,10 +1,7 @@
 import React, { ReactElement } from 'react'
 
-interface Props {
-    
-}
 
-function Work({}: Props): ReactElement {
+function Work(): ReactElement {
     return (
         <div>
             Hello!

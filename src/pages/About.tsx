@@ -1,10 +1,6 @@
 import React, { ReactElement } from 'react'
 
-interface Props {
-    
-}
-
-function About({}: Props): ReactElement {
+function About(): ReactElement {
     return (
         <div>
             
