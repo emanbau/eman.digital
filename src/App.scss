@@ -47,8 +47,9 @@
   pointer-events: none;
   background-image: url(./assets/static.jpeg);
   background-repeat: repeat;
-  animation: static 15s linear infinite;
-  opacity: 0.04;
+  animation: static 0.25s linear infinite;
+  opacity: 0.05;
+  transform: scaleX(1.2);
 }
 
 @keyframes static {

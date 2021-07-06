@@ -25,7 +25,7 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
 
             renderer = new THREE.WebGL1Renderer({alpha: true, antialias: true});
             renderer.setSize( 420, 700 );
-            renderer.setClearColor(0x282828);
+            renderer.setClearColor(0x1d1d1d);
             renderer.outputEncoding = THREE.sRGBEncoding;
 
             mount?.appendChild( renderer.domElement );
