@@ -20,6 +20,7 @@ canvas {
   letter-spacing: 1.5px;
   text-decoration: none;
   z-index: 2;
+  display: inline-block;
 }
 
 .home-container-dark {
@@ -78,9 +79,14 @@ canvas {
     position: absolute;
     z-index: 3;
     opacity: 0.8;
-    letter-spacing: 15px;
+    letter-spacing: 5px;
     line-height: 100px;
     pointer-events: none;
+    overflow: hidden;
+
+    span {
+      display: inline-block;
+    }
   }
 }
 

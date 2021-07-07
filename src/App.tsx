@@ -22,7 +22,9 @@ function App() {
       </div>
       <Router>
         <Switch>
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' >
+            <Home loading={loading} />
+          </Route>
           <Route path='/about' component={About} />
           <Route path='/work' component={Work} />
         </Switch>
