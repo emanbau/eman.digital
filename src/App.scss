@@ -1,9 +1,4 @@
 @font-face {
-  font-family: "NeutralFace";
-  src: url("assets/NeutralFace.otf") format("opentype");
-}
-
-@font-face {
   font-family: "Clash-Extralight";
   src: url("assets/ClashDisplay-Extralight.otf") format("opentype");
 }
@@ -11,6 +6,16 @@
 @font-face {
   font-family: "GroteskRegular";
   src: url("assets/GroteskRegular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PanchangMedium";
+  src: url("assets/Panchang-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PanchangRegular";
+  src: url("assets/Panchang-Regular.ttf") format("truetype");
 }
 
 * {

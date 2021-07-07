@@ -4,9 +4,10 @@ import '../App.scss';
 
 interface Props {
     loadingHandle: () => void;
+    loading: boolean;
 }
 
-function LoadingScreen({ loadingHandle }: Props): ReactElement {
+function LoadingScreen({ loadingHandle, loading }: Props): ReactElement {
 
     let [percent, setPercent] = useState<number>(0);
 

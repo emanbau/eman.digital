@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <div className={loading ? 'loading' : 'loading false'}>
-        <LoadingScreen loadingHandle={loadingHandle} />
+        <LoadingScreen loading={loading} loadingHandle={loadingHandle} />
       </div>
       <Router>
         <Switch>
