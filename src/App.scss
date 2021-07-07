@@ -1,16 +1,6 @@
 @font-face {
-  font-family: "Coffekan";
-  src: url("assets/CoffekanRegular.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "NeutralFace";
   src: url("assets/NeutralFace.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Clash";
-  src: url("assets/Clash.ttf") format("truetype");
 }
 
 @font-face {
@@ -19,8 +9,8 @@
 }
 
 @font-face {
-  font-family: "Clash-Semibold";
-  src: url("assets/ClashDisplay-Semibold.otf") format("opentype");
+  font-family: "GroteskRegular";
+  src: url("assets/GroteskRegular.ttf") format("truetype");
 }
 
 * {
@@ -43,7 +33,54 @@
 
 .three-grain-filter {
   @extend %page-container;
-  z-index: 3;
   pointer-events: none;
   opacity: 0.5;
+}
+
+.z-index-3 {
+  z-index: 3;
+}
+
+.z-index-4 {
+  z-index: 4;
+}
+
+.loading {
+  @extend %page-container;
+  z-index: 4;
+  top: 0vh;
+  transition: 2000ms;
+  background-color: #eaeaea;
+
+  .loading-header {
+    position: absolute;
+    z-index: 5;
+    font-family: "GroteskRegular", serif;
+    letter-spacing: 2px;
+    font-size: 20px;
+    top: 10vh;
+  }
+
+  .loading-header-two {
+    position: absolute;
+    z-index: 5;
+    font-family: "GroteskRegular", serif;
+    letter-spacing: 2px;
+    font-size: 20px;
+    top: 90vh;
+  }
+
+  .percent {
+    position: absolute;
+    z-index: 5;
+    font-family: "Clash-Extralight", serif;
+    font-size: 75px;
+    letter-spacing: 7px;
+  }
+}
+
+.false {
+  @extend %page-container;
+  top: -100vh;
+  transition: 2000ms;
 }

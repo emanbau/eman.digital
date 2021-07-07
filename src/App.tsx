@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import './App.scss';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -11,13 +11,13 @@ function App() {
   // Loading State
   const [loading, setLoading] = useState<boolean>(true);
   // Change Loading State
-  const loadingHandle: () => void = () => {
-    setLoading(!loading);
-  }
+  const loadingHandle = useCallback(() => {
+    setLoading(false);
+  }, []);
 
   return (
     <div className="App">
-      <div>
+      <div className={loading ? 'loading' : 'loading false'}>
         <LoadingScreen loadingHandle={loadingHandle} />
       </div>
       <Router>

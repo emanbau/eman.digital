@@ -6,8 +6,11 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import '../App.scss';
 
+interface Props {
+    zIndex: string;
+}
 
-const ThreeGrainFilter = React.memo(function ThreeGrainFilter(): ReactElement {
+const ThreeGrainFilter = React.memo(function ThreeGrainFilter({ zIndex }: Props): ReactElement {
     const threeGrainFilterRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -25,7 +28,9 @@ const ThreeGrainFilter = React.memo(function ThreeGrainFilter(): ReactElement {
             camera = new THREE.PerspectiveCamera(40, window.innerWidth/window.innerHeight, 0.1, 1000);
             camera.position.y = 6;
             renderer = new THREE.WebGLRenderer({alpha: true});
-            renderer.setClearColor(0x000000, 0.7);
+            const setClearColor = (zIndex === 'z-index-4') ? 0xeaeaea : 0x000000
+            const opacity = (zIndex === 'z-index-4') ? 1 : 0.7
+            renderer.setClearColor(setClearColor, opacity);
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.outputEncoding = THREE.sRGBEncoding;
             mount?.appendChild(renderer.domElement);
@@ -149,7 +154,7 @@ const ThreeGrainFilter = React.memo(function ThreeGrainFilter(): ReactElement {
     })
 
     return (
-        <div ref={threeGrainFilterRef} className="three-grain-filter" />
+        <div ref={threeGrainFilterRef} className={`three-grain-filter ${zIndex}`} />
     )
 })
 

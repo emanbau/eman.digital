@@ -1,4 +1,6 @@
 import { ReactElement, Fragment, useEffect, useState } from 'react'
+import ThreeGrainFilter from '../components/ThreeGrainFilter';
+import '../App.scss';
 
 interface Props {
     loadingHandle: () => void;
@@ -12,13 +14,18 @@ function LoadingScreen({ loadingHandle }: Props): ReactElement {
         setTimeout(() => {
             if (percent < 100) {
                 setPercent(percent + 1);
-                }
+            } else {
+                loadingHandle();
+            }
         }, 30);
-    }, [percent])
+    }, [percent, loadingHandle])
 
     return (
         <Fragment>
-            <h1>{percent}%</h1>
+            <ThreeGrainFilter zIndex='z-index-4' />
+            <h1 className='loading-header'>Eman Bautista</h1>
+            <h1 className='percent'>{percent}%</h1>
+            <h1 className="loading-header-two">Selected Works</h1>
         </Fragment>
     )
 }

@@ -123,7 +123,7 @@ const ThreeImage = React.memo(function ThreeImage(): ReactElement {
     return (
         <React.Fragment>
             <div className="three-image" ref={threeRef} />
-            <ThreeGrainFilter />
+            <ThreeGrainFilter zIndex='z-index-3'/>
         </React.Fragment>
     )
 });
