@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { AmbientLight, DirectionalLight, Mesh, MeshLambertMaterial, PerspectiveCamera, Scene, SphereBufferGeometry, WebGLRenderer } from 'three';
+import { AmbientLight, DirectionalLight, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
@@ -137,6 +137,8 @@ const ThreeGrainFilter = React.memo(function ThreeGrainFilter(): ReactElement {
         return() => {
             stop();
             mount?.removeChild( renderer.domElement );
+            scene.remove(directionalLight);
+            scene.remove(ambientLight);
             // scene.remove(cube);
             // scene.remove(cube1);
             // scene.remove(cube2);
