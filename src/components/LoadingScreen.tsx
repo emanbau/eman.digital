@@ -1,5 +1,4 @@
-import { ReactElement, useState, Fragment } from 'react'
-import { setTimeout } from 'timers';
+import { ReactElement, Fragment, useEffect, useState } from 'react'
 
 interface Props {
     loadingHandle: () => void;
@@ -7,14 +6,19 @@ interface Props {
 
 function LoadingScreen({ loadingHandle }: Props): ReactElement {
 
-    const [percentage, setPercentage] = useState<number>(0);
-    for(let i = 0; i <= 100; i++) {
-        setTimeout(() => setPercentage(i), 1);
-    }
+    let [percent, setPercent] = useState<number>(0);
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (percent < 100) {
+                setPercent(percent + 1);
+                }
+        }, 30);
+    }, [percent])
 
     return (
         <Fragment>
-            <h1>{percentage}%</h1>
+            <h1>{percent}%</h1>
         </Fragment>
     )
 }
