@@ -1,12 +1,12 @@
 # Todo List
 
-[x] Home Page
-[x] Loading Page
-[x] Grain Filter
-[] Custom Cursor
-[] Work Page
-[] About Page
-[] Custom Page
+- [x] Home Page
+- [x] Loading Page
+- [x] Grain Filter
+- [] Custom Cursor
+- [] Work Page
+- [] About Page
+- [] Custom Page
 
 # Getting Started with Create React App
 
