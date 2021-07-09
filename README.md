@@ -1,3 +1,13 @@
+# Todo List
+
+[x] Home Page
+[x] Loading Page
+[x] Grain Filter
+[] Custom Cursor
+[] Work Page
+[] About Page
+[] Custom Page
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
