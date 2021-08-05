@@ -15,6 +15,13 @@ function App() {
     setLoading(false);
   }, []);
 
+  // Routes
+  const routes = [
+    {path: '/', name: 'Home', component: Home},
+    {path: '/about', name: 'About', component: About},
+    {path: '/work', name: 'Work', component: Work},
+  ]
+
   return (
     <div className="App">
       <div className={loading ? 'loading' : 'loading false'}>
