@@ -32,7 +32,7 @@ function Home ({ loading }: Props): ReactElement {
         gsap.from(contactRef.current, {delay: !loading ? 0 : 5, opacity: 0, ease: "sine.out", x: -90, duration: 1.5});
         gsap.from(yearRef.current, {delay: !loading ? 0 : 5, opacity: 0, ease: "sine.out", x: 90, duration: 1.5});
 
-    }, [workRef, aboutRef, contactRef, yearRef, headerOneRef, headerTwoRef, headerThreeRef]);
+    }, [workRef, aboutRef, contactRef, yearRef, headerOneRef, headerTwoRef, headerThreeRef, loading]);
 
     return (
         <div className="home-container-dark">
