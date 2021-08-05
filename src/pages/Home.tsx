@@ -20,17 +20,17 @@ function Home ({ loading }: Props): ReactElement {
 
     useEffect(() => {
         gsap.from([headerOneRef.current, headerTwoRef.current, headerThreeRef.current], {
-            delay: 5,
+            delay: !loading ? 0 : 5,
             opacity: 0,
             ease: "sine.out",
             y: 90,
             duration: 1.5,
         });
 
-        gsap.from(workRef.current, {delay: 5, opacity: 0, ease: "sine.out", x: -90, duration: 1.5});
-        gsap.from(aboutRef.current, {delay: 5, opacity: 0, ease: "sine.out", x: 90, duration: 1.5});
-        gsap.from(contactRef.current, {delay: 5, opacity: 0, ease: "sine.out", x: -90, duration: 1.5});
-        gsap.from(yearRef.current, {delay: 5, opacity: 0, ease: "sine.out", x: 90, duration: 1.5});
+        gsap.from(workRef.current, {delay: !loading ? 0 : 5, opacity: 0, ease: "sine.out", x: -90, duration: 1.5});
+        gsap.from(aboutRef.current, {delay: !loading ? 0 : 5, opacity: 0, ease: "sine.out", x: 90, duration: 1.5});
+        gsap.from(contactRef.current, {delay: !loading ? 0 : 5, opacity: 0, ease: "sine.out", x: -90, duration: 1.5});
+        gsap.from(yearRef.current, {delay: !loading ? 0 : 5, opacity: 0, ease: "sine.out", x: 90, duration: 1.5});
 
     }, [workRef, aboutRef, contactRef, yearRef, headerOneRef, headerTwoRef, headerThreeRef]);
 
