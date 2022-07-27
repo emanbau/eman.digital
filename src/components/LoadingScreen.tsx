@@ -26,7 +26,7 @@ function LoadingScreen({ loadingHandle, loading }: Props): ReactElement {
                     opacity: 0,
                 });
             }
-        }, 30);
+        }, 10);
     }, [percent, loadingHandle, headerRef, percentRef, headerTwoRef])
 
     return (
